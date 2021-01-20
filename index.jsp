@@ -98,9 +98,9 @@ footer {
 <section>
   <nav>
     <ul>
-     <li><a href="patient/all_patients.jsp">Patients</a></li>
+     <li><a href="procedure/abc.jsp">Patients</a></li>
       <li><a href="ProcedureServlet?action=LIST">Procedures</a></li>
-   	<li><a href="patient/">Patient Visit</a></li>
+   	<li><a href="PatientVisitServlet?select=NO">Patient Visit</a></li>
     </ul>
   </nav>
   

@@ -21,16 +21,16 @@
                     <div class="form-group">
                         <input type="hidden" name="procedureId" value="${procedure.procedureId}" />
                     </div>
-                    <div>
+                    <div class="form-group">
                         <input type="text" name="cpt" value="${procedure.cpt}" maxlength="6" required placeholder="Enter CPT" class="form-control"/><br/>
                     </div>
-                    <div>
+                    <div class="form-group">
                         <textarea name="description" rows="3" required placeholder="Enter Description" class="form-control">${procedure.description}</textarea><br/>
                     </div>
-                    <div>
+                    <div class="form-group">
                         <input type="text" name="cptName" value="${procedure.name}" placeholder="Enter name" class="form-control"/><br/>
                     </div>
-                    <div>
+                    <div class="form-group">
                         <input type="text" name="cost" value="${procedure.cost}" placeholder="Enter cost" class="form-control"/><br/>
                     </div>
 

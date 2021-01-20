@@ -1,4 +1,4 @@
-package com.dtcc.servlets;
+package com.dtcc.controller;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -7,7 +7,6 @@ import javax.servlet.annotation.*;
 import java.util.*;
 import com.dtcc.dao.*;
 import com.dtcc.model.*;
-import com.dtcc.util.DBConnectionUtil;
 
 @WebServlet("/ProcedureServlet")
 public class ProcedureServlet extends HttpServlet{
