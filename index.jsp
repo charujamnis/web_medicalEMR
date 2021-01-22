@@ -1,119 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Medical EMR</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-* {
-  box-sizing: border-box;
-}
-
-body {
-    font-family: "Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    letter-spacing: 0;
-    line-height: 1.6;
-    color: #666;
-    background-color: #fff;
-}
-
-/* Style the header */
-header {
- /* background-color: #666;
-  padding: 30px;
-  text-align: center;
-  font-size: 35px;
-  color: white;*/
-  box-sizing : border-box;
-color :rgb(102, 102, 102);
-display : block;
-font-family :Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
-font-size :16px;
-font-weight :400;
-height :145px;
-letter-spacing :normal;
-line-height :25.6px;
-text-rendering: optimizelegibility;
-text-size-adjust :100%;
-width: 417.333px;
--webkit-font-smoothing: antialiased;
--webkit-tap-highlight-color :rgba(0, 0, 0, 0);
-}
-
-/* Create two columns/boxes that floats next to each other */
-nav {
-  float: left;
-  width: 30%;
-  height: 300px; /* only for demonstration, should be removed */
-  background: #ccc;
-  padding: 20px;
-}
-
-/* Style the list inside the menu */
-nav ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-article {
-  float: left;
-  padding: 20px;
-  width: 70%;
-  background-color: #f1f1f1;
-  height: 300px; /* only for demonstration, should be removed */
-}
-
-/* Clear floats after the columns */
-section::after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Style the footer */
-footer {
-  background-color: #777;
-  padding: 10px;
-  text-align: center;
-  color: white;
-}
-
-/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
-@media (max-width: 600px) {
-  nav, article {
-    width: 100%;
-    height: auto;
-  }
-}
-</style>
+  <title>Medical EMR</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="${pageContext.request.contextPath}/resources/main.css" rel="stylesheet"></link>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 </head>
 <body>
 
-<header>
-  <h2>Medical EMR</h2>
-</header>
+<div class="header">
+  <h1>MedicalEMR</h1>
+</div>
 
-<section>
-  <nav>
-    <ul>
-     <li><a href="procedure/abc.jsp">Patients</a></li>
-      <li><a href="ProcedureServlet?action=LIST">Procedures</a></li>
-   	<li><a href="PatientVisitServlet?select=NO">Patient Visit</a></li>
-    </ul>
-  </nav>
-  
-  <article>
-    <h1>London</h1>
-    <p>London is the capital city of England. It is the most populous city in the  United Kingdom, with a metropolitan area of over 13 million inhabitants.</p>
-    <p>Standing on the River Thames, London has been a major settlement for two millennia, its history going back to its founding by the Romans, who named it Londinium.</p>
-  </article>
-</section>
+<div class="topnav">
+  <a href="${pageContext.request.contextPath}/index.jsp">Home</a>
+  <a href="#">Patient</a>
+  <a href="${pageContext.request.contextPath}/ProcedureServlet?action=LIST">Procedure</a>
+  <a href="${pageContext.request.contextPath}/PatientVisitServlet?select=NO">Patient Visit</a>
+</div>
 
-<footer>
-  <p>Footer</p>
-</footer>
+<div class="row">
+  <div class="column side">
+  </div>
+
+  <div class="column middle">
+    <h4>EMR Portal</h4>
+    <h5>Overview</h5>
+    <p>MedicalEMR portal helps dentists to keep all the information about their patients. It allows to add new CPT codes introduced by American Dental Association.
+    Being web based, it allows you to access your patients' records anytime with mobile devices with internet access. </p>
+    <h5>Access to Dental Records</h5>
+    <p>The software helps the dental office to access the dental records of patients at a single glance. It may help the dentist to know which dental procedures have been done before on the patients.</p>
+    Also, it allows to access the medical history of patients. This is very vital for performing certain dental procedures.
+    For instance, if a patient is a cardiac and taking anti-coagulant medication, you may advise them to stop taking it for a couple of days before they come for tooth extraction,etc. </p>
+    <h5>Appointment Scheduling</h5>
+    <p>It allows to schedule future appointments for your patients.</p>
+
+  </div>
+
+  <div class="column side">
+
+  </div>
+</div>
+
+<div class="footer">
+  <p> All Rights Reserved. Copyright &copy; 2021</p>
+</div>
 
 </body>
 </html>

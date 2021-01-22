@@ -6,6 +6,7 @@ pageEncoding="ISO-8859-1"%>
 <html>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/main.css">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 	<title>Medical EMR</title>
 	<script>
@@ -22,13 +23,27 @@ pageEncoding="ISO-8859-1"%>
 	</script>
 </head>
 <body>
-<div class="container">
+<div class="container-fluid">
+	<div class="header">
+		<h1>MedicalEMR</h1>
+	</div>
+
+	<div class="topnav">
+		<a href="${pageContext.request.contextPath}/index.jsp">Home</a>
+		<a href="#">Patient</a>
+		<a href="ProcedureServlet?action=LIST">Procedure</a>
+		<a href="PatientVisitServlet?select=NO">Patient Visit</a>
+	</div>
+
+	<section>
+
+		<main>
 
 	<p>${message}</p>
 	<button class="btn btn-primary" onclick="window.location.href='procedure/add_procedure.jsp'">Add Procedure</button>
 	<table class="table table-striped table-hover">
 		<tr>
-			<th>CPT1234</th>
+			<th>CPT</th>
 			<th>Description</th>
 			<th>Name</th>
 			<th>Cost </th>
@@ -48,6 +63,8 @@ pageEncoding="ISO-8859-1"%>
 			</tr>
 		</c:forEach>
 	</table>
+		</main>
+	</section>
 </div>
 </body>
 </html>

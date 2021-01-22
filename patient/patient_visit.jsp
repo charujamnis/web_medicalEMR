@@ -9,21 +9,25 @@
 <head>
     <title>Patient Visit</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/main.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <script>
 
+       /* $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+        });*/
+
         function sendPatientIdToServlet(){
             var patientId=document.getElementById('patientSelect').value;
-           // alert(patientId);
             window.location.href='${pageContext.request.contextPath}/PatientVisitServlet?select=YES&patientId='+patientId;
         }
 
         function validateForm(){
-            if(document.getElementById('patientSelect').value==0){
+            if(document.getElementById('patientSelect').value==""){
                 alert('Please select Patient');
                 return false;
             }
-            if(document.getElementById('procedureSelect').value==0){
+            if(document.getElementById('procedureSelect').value==""){
                 alert('Please select Procedure');
                 return false;
             }
@@ -31,32 +35,35 @@
 
         function deletePatientHistory(patientId,procedureId,purpose,dateOfVisit,nextAppointment){
 
-           // var form = document.forms[0];
             const result = confirm("Are you sure, you want to delete the row?");
             if(result){
-                //form.action='/PatientVisitServlet?select=DELETEHISTORY&patientId='+patientId+'&procedureId='+procedureId+'&purpose='+purpose+'&dateOfVisit='+dateOfVisit+'&nextAppointment='+nextAppointment;
-               // form.action='/PatientVisitServlet?select=DELETEHISTORY';
-               // form.method = "POST";
-                //form.submit();
                 window.location.href='${pageContext.request.contextPath}/PatientVisitServlet?select=DELETEHISTORY&patientId='+patientId+'&procedureId='+procedureId+'&purpose='+purpose+'&dateOfVisit='+dateOfVisit+'&nextAppointment='+nextAppointment;
             }
-        }
-        function getProcedureIdValue(){
-            var selectedProcdureId=document.getElementById('procedureSelect').value;
-            //window.location.reload(true);
         }
     </script>
 </head>
 <body>
 
-    <div class="container">
-        <h4>Patient Visit Screen</h4>
+<div class="container-fluid">
+<div class="header">
+    <h1>MedicalEMR</h1>
+</div>
+
+<div class="topnav">
+    <a href="${pageContext.request.contextPath}/index.jsp">Home</a>
+    <a href="#">Patient</a>
+    <a href="ProcedureServlet?action=LIST">Procedure</a>
+    <a href="PatientVisitServlet?select=NO">Patient Visit</a>
+</div>
+
+    <div class="row">
         <h6>${message}</h6>
         <h6>${deleteMessage}</h6>
-        <div class=""row>
+
             <div class="col-md-4">
                 <form name="form-visit"  method="POST" onsubmit="return validateForm()" action="${pageContext.request.contextPath}/PatientVisitServlet?select=PATIENTVISIT">
-                    <div class="form-group">
+
+                <div class="form-group">
                         <input type="hidden" name="patientId" value="${patient.patientId}" />
                     </div>
 
@@ -77,16 +84,16 @@
                         <input type="hidden" name="procedureList" value="${procedureList}" />
                     </div>
 
-                    <br/>
+
 
 
                     <div class="form-group">
                         <!--  <label>Select Patient</label> -->
                         <select id="patientSelect" name="patient" required placeholder="Select Patient" class="form-control" onchange="sendPatientIdToServlet();">
-                            <option value="0">Select Patient</option>
+                            <option value="">Select Patient</option>
                             <c:forEach items="${patientList}" var="patient">
 
-                                <option value="${patient.patientId}" ${patient.patientId == selectedPatientId ? 'selected' : ''}>${patient.first_name} ${patient.last_name}</option>
+                                <option value="${patient.patientId}" ${patient.patientId == selectedPatientId ? 'selected' : ''}>${patient.first_name} ${patient.last_name} - ${patient.accountnumber}</option>
                             </c:forEach>
                         </select>
                     </div>
@@ -96,44 +103,17 @@
 
                     <div class="form-group">
                         <!-- <label>Select Procedure</label> -->
-                        <select id="procedureSelect" name="pSelect" required class="form-control" onchange="getProcedureIdValue()">
-                            <option value="0">Select Procedure</option>
+                        <select id="procedureSelect" name="pSelect" required class="form-control">
+                            <option value="">Select Procedure</option>
                             <c:forEach items="${procedureList}" var="procedure">
-                                <option value="${procedure.procedureId}" ${procedure.procedureId == selectedProcdureId ? 'selected' : ''}>${procedure.cpt}</option>
+                                <option value="${procedure.procedureId}" ${procedure.procedureId == selectedProcdureId ? 'selected' : ''}>${procedure.cpt} ${procedure.description}</option>
                             </c:forEach>
 
                         </select>
                     </div>
 
-
                     <br/>
 
-                    <%! String desc="";%>
-                    <%
-                       //String pID = request.getParameter("pSelect");
-                        //System.out.println("The PID is outherdddddddddd "+pID);
-                       // if(pID!=null) {
-                       //    System.out.println("The PID is "+pID);
-                       //     // request.setAttribute("procedure",procedure);
-                       //    Connection connection = DBConnectionUtil.getConnection();
-                       //    String sql = "select description from procedures where procedureId=?";
-                        //  PreparedStatement ps = connection.prepareStatement(sql);
-                         //  ps.setInt(1, Integer.parseInt(pID));
-                         //  ResultSet rs = ps.executeQuery();
-                         //  while (rs.next()) {
-                         //     desc = rs.getString("description");
-                         //  }
-                       //}
-                        %>
-
-                    <div>
-                         <label>Procedure Description</label>
-                        <textarea id="txtArea" name="description" rows="2" cols="50" readonly class="form-control"><%=desc%></textarea>
-                        <!-- <input type="text" name="name" value="" readonly class="form-control"/> -->
-                    </div>
-
-
-                    </br>
                     <div class="form-group">
                         <!-- <label>Purpose Of Visit</label> -->
                         <input type="text" name="purpose" value="" placeholder="Purpose of visit" class="form-control"/>
@@ -148,9 +128,11 @@
 
                     </br>
                     <button class="btn btn-primary" type="submit">Save</button>
+                </form>
+            </div>
 
-                    <hr>
-
+            <form class="col-md-8">
+                <form name="form-visit2"/>
                     <table class="table table-striped table-hover" width="80%">
                         <tr>
                             <th>Name</th>
@@ -171,15 +153,22 @@
                                 <td>${patientHistory.dateOfVisit}</td>
                                 <td>${patientHistory.purpose}</td>
                                 <td>${patientHistory.nextAppointment}</td>
-                                <td>${patientHistory.desc}</td>
+
+                               <td> <a href="#" style="text-decoration:none" data-toggle="tooltip" title="${patientHistory.desc}">Description</a></td>
                                 <!-- <td><input type="button" name="update" value="Update" onclick="window.location.href='${pageContext.request.contextPath}/ProcedureServlet?action=EDIT&procedureId=${procedure.procedureId}'"/></td> -->
                                 <td><input type="button" name="delete" value="Delete" onclick="deletePatientHistory(${patientHistory.patientId},${patientHistory.procedureId},'${patientHistory.purpose}','${patientHistory.dateOfVisit}','${patientHistory.nextAppointment}')"/></td>
                             </tr>
                         </c:forEach>
                     </table>
-                </form>
-            </div>
-        </div>
+            </form>
     </div>
+
+    </div>
+</div>
+
+<div class="footer">
+    <p> All Rights Reserved. Copyright &copy; 2021</p>
+</div>
+
 </body>
 </html>
