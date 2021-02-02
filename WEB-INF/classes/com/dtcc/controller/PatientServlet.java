@@ -4,6 +4,8 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.IOException;
 import javax.servlet.annotation.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import com.dtcc.dao.*;
 import com.dtcc.model.*;
@@ -29,7 +31,7 @@ public class PatientServlet extends HttpServlet {
 
         switch (action) {
             case "LIST":
-                listPatient(request, response);
+                listPatients(request, response);
                 break;
 
             case "EDIT":
@@ -41,16 +43,14 @@ public class PatientServlet extends HttpServlet {
                 break;
 
             default:
-                listPatient(request, response);
+                listPatients(request, response);
                 break;
         }
     }
 
-    private void listPatient(HttpServletRequest request, HttpServletResponse response) {
-    }
-
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println("Update working!!!!!!!!!!!!!!!!");
         String patientId = request.getParameter("patientId");
         String accountnumber = request.getParameter("accountnumber");
         String addressId = request.getParameter("addressId");
@@ -69,19 +69,33 @@ public class PatientServlet extends HttpServlet {
         String employmentstatus= request.getParameter("employmentstatus");
         String medicalhistory= request.getParameter("medicalhistory");
         String allergies= request.getParameter("allergies");
-        String medicine= request.getParameter("medicine");
+        String medicines= request.getParameter("medicines");
         //String createdDate= request.getParameter("createdDate");
-
+        System.out.println("in do post before patient");
         Patient patient = new Patient();
-        patient.setPatientId(Integer.parseInt(patientId));
-        patient.setDescription(description);
-        patient.setName(name);
-        if (cost.equals("")) {
-            patient.setCost(0.0);
-        } else {
-            patient.setCost(Double.parseDouble(cost));
+       // patient.setPatientId(Integer.parseInt(patientId));
+        patient.setAccountnumber(Integer.parseInt(accountnumber));
+        //patient.setAddressId(Integer.parseInt(addressId));
+        patient.setFirst_name(first_name);
+        patient.setLast_name(last_name);
+        try {
+            patient.setDob((new SimpleDateFormat("yyyy-MM-dd").parse(dob)));
+        } catch (ParseException e) {
+            e.printStackTrace();
         }
-
+        patient.setHeight(Double.parseDouble(height));
+        patient.setWeight(Double.parseDouble(weight));
+        patient.setEmail(email);
+        patient.setPhonenumber(phonenumber);
+        patient.setMaritalstatus(maritalstatus);
+        System.out.println("in do post after marital status");
+        patient.setSsn(Long.parseLong(ssn));
+        patient.setEmergencyname(emergencyname);
+        patient.setEmergencycontact(emergencycontact);
+        patient.setEmploymentstatus(employmentstatus);
+        patient.setMedicalhistory(medicalhistory);
+        patient.setAllergies(allergies);
+        patient.setMedicines(medicines);
         if (patientId != null && patientId.length() > 0) {    //update operation
             patient.setPatientId(Integer.parseInt(patientId));
             if (patientDAO.update(patient)) {
@@ -110,19 +124,19 @@ public class PatientServlet extends HttpServlet {
 
     }
 
-    public void getSinglePatient(HttpServletRequest request, HttpServletResponse response) {
-        String patientId = request.getParameter("patientId");
-        Patient patient = patientDAO.get(Integer.parseInt(patientId));
-        request.setAttribute("patient", patient);
-        dispatcher = request.getRequestDispatcher("/patient/add_patient.jsp");
-        try {
-            dispatcher.forward(request, response);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+        public void getSinglePatient(HttpServletRequest request, HttpServletResponse response) {
+            String patientId = request.getParameter("patientId");
+            Patient patient = patientDAO.get(Integer.parseInt(patientId));
+            request.setAttribute("patient", patient);
+            dispatcher = request.getRequestDispatcher("/patient/add_patient.jsp");
+            try {
+                dispatcher.forward(request, response);
+            } catch (ServletException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-    }
 
     public void deletePatient(HttpServletRequest request, HttpServletResponse response) {
         String patientId = request.getParameter("patientId");
@@ -132,4 +146,4 @@ public class PatientServlet extends HttpServlet {
         listPatients(request, response);
     }
 }
-}
+//}
