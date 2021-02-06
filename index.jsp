@@ -15,7 +15,7 @@
 
 <div class="topnav">
   <a href="${pageContext.request.contextPath}/index.jsp">Home</a>
-  <a href="#">Patient</a>
+  <a href="${pageContext.request.contextPath}/PatientServlet?action=LIST">Patient</a>
   <a href="${pageContext.request.contextPath}/ProcedureServlet?action=LIST">Procedure</a>
   <a href="${pageContext.request.contextPath}/PatientVisitServlet?select=NO">Patient Visit</a>
 </div>

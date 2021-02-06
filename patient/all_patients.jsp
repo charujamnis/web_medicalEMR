@@ -35,6 +35,7 @@
 		<a href="${pageContext.request.contextPath}/PatientVisitServlet?select=NO">Patient Visit</a>
 	</div>
 
+
 <p>${message}</p>
 <button class="btn btn-primary" onclick="window.location.href='patient/add_patient.jsp'">Add Patient</button>
 <table border="1" class="table table-striped table-hover" >

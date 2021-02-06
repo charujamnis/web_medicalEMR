@@ -50,7 +50,7 @@ public class PatientServlet extends HttpServlet {
 
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("Update working!!!!!!!!!!!!!!!!");
+
         String patientId = request.getParameter("patientId");
         String accountnumber = request.getParameter("accountnumber");
         String addressId = request.getParameter("addressId");
@@ -71,39 +71,73 @@ public class PatientServlet extends HttpServlet {
         String allergies= request.getParameter("allergies");
         String medicines= request.getParameter("medicines");
         //String createdDate= request.getParameter("createdDate");
-        System.out.println("in do post before patient");
+        String address1=request.getParameter("address1");
+        String address2=request.getParameter("address2");
+        String district=request.getParameter("district");
+        String city=request.getParameter("city");
+        String postalcode=request.getParameter("postalcode");
+        String country=request.getParameter("country");
+
+
         Patient patient = new Patient();
+        Address address=new Address();
+
        // patient.setPatientId(Integer.parseInt(patientId));
         patient.setAccountnumber(Integer.parseInt(accountnumber));
         //patient.setAddressId(Integer.parseInt(addressId));
         patient.setFirst_name(first_name);
         patient.setLast_name(last_name);
         try {
-            patient.setDob((new SimpleDateFormat("yyyy-MM-dd").parse(dob)));
+            if(dob.equals(null) || dob.equals("") ||dob.isEmpty()){
+                patient.setDob(null);
+            }else{
+                patient.setDob((new SimpleDateFormat("yyyy-MM-dd").parse(dob)));
+            }
+
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        patient.setHeight(Double.parseDouble(height));
-        patient.setWeight(Double.parseDouble(weight));
+        if(height==null || height.equals("") ||height.isEmpty()) {
+            patient.setHeight(0);
+        }else{ patient.setHeight(Double.parseDouble(height));}
+
+        if(weight==null || weight.equals("") ||weight.isEmpty()) {
+            patient.setWeight(0);
+        }else{ patient.setWeight(Double.parseDouble(weight));}
+
         patient.setEmail(email);
         patient.setPhonenumber(phonenumber);
         patient.setMaritalstatus(maritalstatus);
-        System.out.println("in do post after marital status");
-        patient.setSsn(Long.parseLong(ssn));
+
+        if(ssn==null || ssn.equals("") || ssn.isEmpty()){
+            patient.setSsn(0L);
+        }else{ patient.setSsn(Long.parseLong(ssn));}
+
         patient.setEmergencyname(emergencyname);
         patient.setEmergencycontact(emergencycontact);
         patient.setEmploymentstatus(employmentstatus);
         patient.setMedicalhistory(medicalhistory);
         patient.setAllergies(allergies);
         patient.setMedicines(medicines);
+
+        //Address Information
+
+        address.setAddress1(address1);
+        address.setAddress2(address2);
+        address.setDistrict(district);
+        address.setCity(city);
+        address.setPostalcode(postalcode);
+        address.setCountry(country);
+
+
         if (patientId != null && patientId.length() > 0) {    //update operation
             patient.setPatientId(Integer.parseInt(patientId));
-            if (patientDAO.update(patient)) {
+            if (patientDAO.update(patient,address)) {
                 request.setAttribute("message", "Patient updated Successfully");
             }
 
         } else {    //add operation
-            if (patientDAO.save(patient)) {
+            if (patientDAO.save(patient,address)) {
                 request.setAttribute("message", "Patient saved Successfully");
             }
         }
@@ -127,7 +161,12 @@ public class PatientServlet extends HttpServlet {
         public void getSinglePatient(HttpServletRequest request, HttpServletResponse response) {
             String patientId = request.getParameter("patientId");
             Patient patient = patientDAO.get(Integer.parseInt(patientId));
+            //System.out.println("The address ID ::::::: "+patient.getAddressId());
+            Address address=patientDAO.getPatientAddress(patient.getAddressId());
+
             request.setAttribute("patient", patient);
+            request.setAttribute("address", address);
+            request.setAttribute("selectedGender",patient.getGender()+"");
             dispatcher = request.getRequestDispatcher("/patient/add_patient.jsp");
             try {
                 dispatcher.forward(request, response);
@@ -140,6 +179,9 @@ public class PatientServlet extends HttpServlet {
 
     public void deletePatient(HttpServletRequest request, HttpServletResponse response) {
         String patientId = request.getParameter("patientId");
+        String addressId = request.getParameter("addressId");
+        System.out.println("The patientId: "+patientId+" addressID :"+addressId);
+
         if (patientDAO.delete(Integer.parseInt(patientId))) {
             request.setAttribute("message", "Patient is deleted successfully");
         }

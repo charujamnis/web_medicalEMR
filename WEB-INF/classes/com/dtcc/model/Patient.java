@@ -187,11 +187,11 @@ public class Patient {
         this.medicalhistory = medicalhistory;
     }
 
-    public String getAllegies() {
+    public String getAllergies() {
         return allegies;
     }
 
-    public void setAllegies(String allegies) {
+    public void setAllergies(String allegies) {
         this.allegies = allegies;
     }
 
