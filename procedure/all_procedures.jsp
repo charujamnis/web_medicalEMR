@@ -30,7 +30,7 @@ pageEncoding="ISO-8859-1"%>
 
 	<div class="topnav">
 		<a href="${pageContext.request.contextPath}/index.jsp">Home</a>
-		<a href="#">Patient</a>
+		<a href="PatientServlet?action=LIST">Patient</a>
 		<a href="ProcedureServlet?action=LIST">Procedure</a>
 		<a href="PatientVisitServlet?select=NO">Patient Visit</a>
 	</div>

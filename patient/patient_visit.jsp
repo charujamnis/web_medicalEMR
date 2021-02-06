@@ -45,16 +45,16 @@
 <body>
 
 <div class="container-fluid">
-<div class="header">
-    <h1>MedicalEMR</h1>
-</div>
+    <div class="header">
+        <h1>MedicalEMR</h1>
+    </div>
 
-<div class="topnav">
-    <a href="${pageContext.request.contextPath}/index.jsp">Home</a>
-    <a href="#">Patient</a>
-    <a href="ProcedureServlet?action=LIST">Procedure</a>
-    <a href="PatientVisitServlet?select=NO">Patient Visit</a>
-</div>
+    <div class="topnav">
+        <a href="${pageContext.request.contextPath}/index.jsp">Home</a>
+        <a href="PatientServlet?action=LIST">Patient</a>
+        <a href="ProcedureServlet?action=LIST">Procedure</a>
+        <a href="PatientVisitServlet?select=NO">Patient Visit</a>
+    </div>
 
     <div class="row">
         <h6>${message}</h6>
@@ -131,7 +131,7 @@
                 </form>
             </div>
 
-            <form class="col-md-8">
+            <div class="col-md-8">
                 <form name="form-visit2"/>
                     <table class="table table-striped table-hover" width="80%">
                         <tr>
@@ -160,10 +160,10 @@
                             </tr>
                         </c:forEach>
                     </table>
-            </form>
+                </form>
+            </div>
     </div>
 
-    </div>
 </div>
 
 <div class="footer">

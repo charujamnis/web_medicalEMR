@@ -21,13 +21,13 @@
 
     <div class="topnav">
         <a href="${pageContext.request.contextPath}/index.jsp">Home</a>
-        <a href="#">Patient</a>
+        <a href="${pageContext.request.contextPath}/PatientServlet?action=LIST">Patient</a>
         <a href="${pageContext.request.contextPath}/ProcedureServlet?action=LIST">Procedure</a>
         <a href="${pageContext.request.contextPath}/PatientVisitServlet?select=NO">Patient Visit</a>
     </div>
 
         <h5>Procedure Screen</h5>
-        <div class=""row>
+        <div class="row">
             <div class="column side small">
             </div>
             <div class="column middle small">
@@ -57,5 +57,9 @@
             </div>
         </div>
     </div>
+<div class="footer">
+    <p> All Rights Reserved. Copyright &copy; 2021</p>
+</div>
+
 </body>
 </html>
