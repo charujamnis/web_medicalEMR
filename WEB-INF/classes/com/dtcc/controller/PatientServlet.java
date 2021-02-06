@@ -97,6 +97,7 @@ public class PatientServlet extends HttpServlet {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+        patient.setGender(gender.charAt(0));
         if(height==null || height.equals("") ||height.isEmpty()) {
             patient.setHeight(0);
         }else{ patient.setHeight(Double.parseDouble(height));}
