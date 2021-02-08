@@ -133,10 +133,11 @@
 
             <div class="col-md-8">
                 <form name="form-visit2"/>
-                    <table class="table table-striped table-hover" width="80%">
+                <div class="table-responsive text-nowrap">
+                    <table class="table table-striped table-hover table-bordered" width="80%">
                         <tr>
                             <th>Name</th>
-                            <th>Account Number</th>
+                            <th>Account</th>
                             <th>CPT</th>
                             <th>Date Of Visit </th>
                             <th>Purpose</th>
@@ -160,6 +161,7 @@
                             </tr>
                         </c:forEach>
                     </table>
+                </div>
                 </form>
             </div>
     </div>

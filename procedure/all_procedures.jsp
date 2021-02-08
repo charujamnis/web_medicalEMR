@@ -41,7 +41,7 @@ pageEncoding="ISO-8859-1"%>
 
 	<p>${message}</p>
 	<button class="btn btn-primary" onclick="window.location.href='procedure/add_procedure.jsp'">Add Procedure</button>
-	<table class="table table-striped table-hover">
+	<table class="table table-striped table-hover table-bordered">
 		<tr>
 			<th>CPT</th>
 			<th>Description</th>

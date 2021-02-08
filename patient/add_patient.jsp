@@ -24,45 +24,45 @@
             <a href="${pageContext.request.contextPath}/ProcedureServlet?action=LIST">Procedure</a>
             <a href="${pageContext.request.contextPath}/PatientVisitServlet?select=NO">Patient Visit</a>
         </div>
-        <h1>Patient Screen</h1>
-        <form class="row g-3" action="${pageContext.request.contextPath}/PatientServlet" method="POST" >
+        <h5>Patient Screen</h5>
+        <form class="row" action="${pageContext.request.contextPath}/PatientServlet" method="POST" >
             <input type="hidden" name="patientId" value="${patient.patientId}" />
             <input type="hidden" name="addressId" value="${patient.addressId}" />
             <input type="hidden" name="selectedGender" value="${selectedGender}" />
             <input type="hidden" name="selectedMaritalstatus" value="${patient.maritalstatus}" />
             <input type="hidden" name="selectedEmploymentstatus" value="${patient.employmentstatus}" />
                 <div class="col-md-4">
-                   FIRST NAME <input type="text" name="first_name"  value="${patient.first_name}" required placeholder="Enter first name" class="form-control">
+                   FIRST NAME <input type="text" name="first_name"  value="${patient.first_name}" required class="form-control form-control-sm">
                 </div>
 
                 <div class="col-md-4">
-                   LAST NAME <input type="text" name="last_name" value="${patient.last_name}" required placeholder="Enter last name" class="form-control">
+                   LAST NAME <input type="text" name="last_name" id="inputsm" value="${patient.last_name}" required class="form-control form-control-sm">
                 </div>
 
                 <div class="col-md-4">
-                  ACCOUNT NUMBER  <input type="text" name="accountnumber" value="${patient.accountnumber}" maxlength="7" required placeholder="Enter account number" class="form-control">
+                  ACCOUNT NUMBER  <input type="text" name="accountnumber" value="${patient.accountnumber}" maxlength="7" required  class="form-control form-control-sm">
                 </div>
 
                 <div class="col-md-4">
-                   PHONE NUMBER <input type="text" name="phonenumber" value="${patient.phonenumber}" placeholder="Enter your phone number" class="form-control">
+                   PHONE NUMBER <input type="text" name="phonenumber" value="${patient.phonenumber}"  class="form-control form-control-sm">
                 </div>
 
                 <div class="col-md-4">
-                    EMAIL<input type="text" name="email" value="${patient.email}" placeholder="Enter email" class="form-control">
+                    EMAIL<input type="text" name="email" value="${patient.email}"  class="form-control form-control-sm">
                 </div>
 
                 <div class="col-md-4">
-                  SSN  <input type="text" name="ssn" value="${patient.ssn}" maxlength="10" placeholder="Enter your social security number" class="form-control">
+                  SSN  <input type="text" name="ssn" value="${patient.ssn}" maxlength="10" class="form-control form-control-sm">
                 </div>
 
 
             <div class="col-md-4">
 
-               DOB <input type="date" name="dob" value="${patient.dob}" placeholder="Enter date of birth" class="form-control">
+               DOB <input type="date" name="dob" value="${patient.dob}"  class="form-control form-control-sm">
             </div>
             <div class="col-md-4">
                 <!--  <label>Select Patient</label> -->
-                GENDER<select id="genderSelect" name="gender"  placeholder="Select Gender" class="form-control">
+                GENDER<select id="genderSelect" name="gender"   class="form-control form-control-sm">
                     <option value='' disabled selected>Select Gender</option>
                     <option value="F" ${selectedGender == 'F' ? 'selected' : ''} >Female</option>
                     <option value="M" ${selectedGender == 'M' ? 'selected' : ''}>Male</option>
@@ -72,37 +72,37 @@
             <div class="col-md-4"></div>
 
             <div class="col-md-4">
-              HEIGHT IN CMS <input type="text" name="height" value="${patient.height}" placeholder="Enter height in cm" class="form-control"/>
+              HEIGHT IN CMS <input type="text" name="height" value="${patient.height}"  class="form-control form-control-sm"/>
             </div>
             <div class="col-md-4">
-               WEIGHT IN POUNDS <input type="text" name="weight" value="${patient.weight}" placeholder="Enter weight in pounds" class="form-control"/>
+               WEIGHT IN POUNDS <input type="text" name="weight" value="${patient.weight}"  class="form-control form-control-sm"/>
             </div>
             <div class="col-md-4">
 
             </div>
 
             <div class="col-md-4">
-                ADDRESS1<input type="text" name="address1" value="${address.address1}" placeholder="Enter Address1" class="form-control">
+                ADDRESS1<input type="text" name="address1" value="${address.address1}"  class="form-control form-control-sm">
             </div>
             <div class="col-md-4">
-               ADDRESS2 <input type="text" name="address2" value="${address.address2}" placeholder="Enter Address2" class="form-control">
+               ADDRESS2 <input type="text" name="address2" value="${address.address2}" class="form-control form-control-sm">
             </div>
             <div class="col-md-4">
-               DISTRICT <input type="text" name="district" value="${address.district}" placeholder="Enter District" class="form-control">
-            </div>
-
-            <div class="col-md-4">
-              CITY  <input type="text" name="city" value="${address.city}" placeholder="Enter City" class="form-control">
-            </div>
-            <div class="col-md-4">
-              COUNTRY  <input type="text" name="country" value="${address.country}" placeholder="Enter Country" class="form-control">
-            </div>
-            <div class="col-md-4">
-               POSTAL CODE <input type="text" name="postalcode" value="${address.postalcode}" placeholder="Enter Postal Code" class="form-control">
+               DISTRICT <input type="text" name="district" value="${address.district}"  class="form-control form-control-sm">
             </div>
 
             <div class="col-md-4">
-                Marital Status<select id="maritalStatusSelect" name="maritalstatus" value ="${patient.maritalstatus}"  placeholder="Select Marital Status" class="form-control">
+              CITY  <input type="text" name="city" value="${address.city}"  class="form-control form-control-sm">
+            </div>
+            <div class="col-md-4">
+              COUNTRY  <input type="text" name="country" value="${address.country}"  class="form-control form-control-sm">
+            </div>
+            <div class="col-md-4">
+               POSTAL CODE <input type="text" name="postalcode" value="${address.postalcode}"  class="form-control form-control-sm">
+            </div>
+
+            <div class="col-md-4">
+                Marital Status<select id="maritalStatusSelect" name="maritalstatus" value ="${patient.maritalstatus}"  class="form-control form-control-sm">
                     <option value="" disabled selected>Select Marital Status</option>
                     <option value="Married" ${patient.maritalstatus == 'Married' ? 'selected' : ''}>Married</option>
                     <option value="Single" ${patient.maritalstatus == 'Single' ? 'selected' : ''}>Single</option>
@@ -111,7 +111,7 @@
                 </select>
             </div>
             <div class="col-md-4">
-                Employment Status<select id="employmentstatusSelect" name="employmentstatus"  placeholder="Select Employment Status" class="form-control">
+                Employment Status<select id="employmentstatusSelect" name="employmentstatus"  class="form-control form-control-sm">
                     <option value="" disabled selected>Select Employment Status</option>
                     <option value="Full Time" ${patient.employmentstatus == 'Full Time' ? 'selected' : ''}>Full Time</option>
                     <option value="Part Time" ${patient.employmentstatus == 'Part Time' ? 'selected' : ''}>Part Time</option>
@@ -126,25 +126,25 @@
             </div>
 
             <div class="col-md-4">
-              EMERGENCY NAME  <input type="text" name="emergencyname" value="${patient.emergencyname}" placeholder="Enter emergency name" class="form-control"/>
+              EMERGENCY NAME  <input type="text" name="emergencyname" value="${patient.emergencyname}" class="form-control form-control-sm"/>
             </div>
             <div class="col-md-4">
-               EMERGENCY CONTACT <input type="text" name="emergencycontact" value="${patient.emergencycontact}" placeholder="Enter emergency contact" class="form-control"/>
+               EMERGENCY CONTACT <input type="text" name="emergencycontact" value="${patient.emergencycontact}" class="form-control form-control-sm"/>
             </div>
             <div class="col-md-4">
 
             </div>
 
             <div class="col-md-4">
-               MEDICAL HISTORY <textarea name="medicalhistory" rows="3"  placeholder="Enter medical history" class="form-control">${patient.medicalhistory}</textarea><br/>
+               MEDICAL HISTORY <textarea name="medicalhistory" rows="3"  class="form-control form-control-sm">${patient.medicalhistory}</textarea><br/>
             </div>
 
             <div class="col-md-4">
-               ALLERGIES <textarea name="allergies" rows="3"  placeholder="Enter allergies" class="form-control">${patient.allergies}</textarea><br/>
+               ALLERGIES <textarea name="allergies" rows="3"  class="form-control form-control-sm">${patient.allergies}</textarea><br/>
             </div>
 
             <div class="col-md-4">
-              MEDICINES  <textarea name="medicines" rows="3"  placeholder="Enter Medicines" class="form-control">${patient.medicines}</textarea><br/>
+              MEDICINES  <textarea name="medicines" rows="3" class="form-control form-control-sm">${patient.medicines}</textarea><br/>
             </div>
             <div class="col-md-2"></div><div class="col-md-2"></div>
             <div class="col-md-2">
