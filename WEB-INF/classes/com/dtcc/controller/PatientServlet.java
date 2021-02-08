@@ -57,7 +57,9 @@ public class PatientServlet extends HttpServlet {
         String first_name= request.getParameter("first_name");
         String last_name= request.getParameter("last_name");
         String dob = request.getParameter("dob");
+      //  System.out.println("The gender is === "+request.getParameter("gender") );
         String gender= request.getParameter("gender");
+       // System.out.println("The gender lenght is "+gender.length());
         String height= request.getParameter("height");
         String weight= request.getParameter("weight");
         String email= request.getParameter("email");
@@ -97,7 +99,18 @@ public class PatientServlet extends HttpServlet {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        patient.setGender(gender.charAt(0));
+
+        //Check this again
+        if(gender != null){
+            //System.out.println("In the not null gender");
+            patient.setGender(gender.charAt(0));
+        }
+        else{
+
+            //System.out.println("In the Gender Block");
+            patient.setGender('\0');
+        }
+
         if(height==null || height.equals("") ||height.isEmpty()) {
             patient.setHeight(0);
         }else{ patient.setHeight(Double.parseDouble(height));}

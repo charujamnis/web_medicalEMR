@@ -32,27 +32,27 @@
             <input type="hidden" name="selectedMaritalstatus" value="${patient.maritalstatus}" />
             <input type="hidden" name="selectedEmploymentstatus" value="${patient.employmentstatus}" />
                 <div class="col-md-4">
-                    <input type="text" name="first_name"  value="${patient.first_name}" required placeholder="Enter first name" class="form-control">
+                   FIRST NAME <input type="text" name="first_name"  value="${patient.first_name}" required placeholder="Enter first name" class="form-control">
                 </div>
 
                 <div class="col-md-4">
-                    <input type="text" name="last_name" value="${patient.last_name}" required placeholder="Enter last name" class="form-control">
+                   LAST NAME <input type="text" name="last_name" value="${patient.last_name}" required placeholder="Enter last name" class="form-control">
                 </div>
 
                 <div class="col-md-4">
-                    <input type="text" name="accountnumber" value="${patient.accountnumber}" maxlength="12" required placeholder="Enter account number" class="form-control">
+                  ACCOUNT NUMBER  <input type="text" name="accountnumber" value="${patient.accountnumber}" maxlength="7" required placeholder="Enter account number" class="form-control">
                 </div>
 
                 <div class="col-md-4">
-                    <input type="text" name="phonenumber" value="${patient.phonenumber}" placeholder="Enter your phone number" class="form-control">
+                   PHONE NUMBER <input type="text" name="phonenumber" value="${patient.phonenumber}" placeholder="Enter your phone number" class="form-control">
                 </div>
 
                 <div class="col-md-4">
-                    <input type="text" name="email" value="${patient.email}" placeholder="Enter email" class="form-control">
+                    EMAIL<input type="text" name="email" value="${patient.email}" placeholder="Enter email" class="form-control">
                 </div>
 
                 <div class="col-md-4">
-                    <input type="text" name="ssn" value="${patient.ssn}" placeholder="Enter your social security number" class="form-control">
+                  SSN  <input type="text" name="ssn" value="${patient.ssn}" maxlength="10" placeholder="Enter your social security number" class="form-control">
                 </div>
 
 
@@ -72,33 +72,33 @@
             <div class="col-md-4"></div>
 
             <div class="col-md-4">
-                <input type="text" name="height" value="${patient.height}" placeholder="Enter height in cm" class="form-control"/>
+              HEIGHT IN CMS <input type="text" name="height" value="${patient.height}" placeholder="Enter height in cm" class="form-control"/>
             </div>
             <div class="col-md-4">
-                <input type="text" name="weight" value="${patient.weight}" placeholder="Enter weight in pounds" class="form-control"/>
+               WEIGHT IN POUNDS <input type="text" name="weight" value="${patient.weight}" placeholder="Enter weight in pounds" class="form-control"/>
             </div>
             <div class="col-md-4">
 
             </div>
 
             <div class="col-md-4">
-                <input type="text" name="address1" value="${address.address1}" placeholder="Enter Address1" class="form-control">
+                ADDRESS1<input type="text" name="address1" value="${address.address1}" placeholder="Enter Address1" class="form-control">
             </div>
             <div class="col-md-4">
-                <input type="text" name="address2" value="${address.address2}" placeholder="Enter Address2" class="form-control">
+               ADDRESS2 <input type="text" name="address2" value="${address.address2}" placeholder="Enter Address2" class="form-control">
             </div>
             <div class="col-md-4">
-                <input type="text" name="district" value="${address.district}" placeholder="Enter District" class="form-control">
+               DISTRICT <input type="text" name="district" value="${address.district}" placeholder="Enter District" class="form-control">
             </div>
 
             <div class="col-md-4">
-                <input type="text" name="city" value="${address.city}" placeholder="Enter City" class="form-control">
+              CITY  <input type="text" name="city" value="${address.city}" placeholder="Enter City" class="form-control">
             </div>
             <div class="col-md-4">
-                <input type="text" name="country" value="${address.country}" placeholder="Enter Country" class="form-control">
+              COUNTRY  <input type="text" name="country" value="${address.country}" placeholder="Enter Country" class="form-control">
             </div>
             <div class="col-md-4">
-                <input type="text" name="postalcode" value="${address.postalcode}" placeholder="Enter Postal Code" class="form-control">
+               POSTAL CODE <input type="text" name="postalcode" value="${address.postalcode}" placeholder="Enter Postal Code" class="form-control">
             </div>
 
             <div class="col-md-4">
@@ -126,25 +126,25 @@
             </div>
 
             <div class="col-md-4">
-                <input type="text" name="emergencyname" value="${patient.emergencyname}" placeholder="Enter emergency name" class="form-control"/>
+              EMERGENCY NAME  <input type="text" name="emergencyname" value="${patient.emergencyname}" placeholder="Enter emergency name" class="form-control"/>
             </div>
             <div class="col-md-4">
-                <input type="text" name="emergencycontact" value="${patient.emergencycontact}" placeholder="Enter emergency contact" class="form-control"/>
+               EMERGENCY CONTACT <input type="text" name="emergencycontact" value="${patient.emergencycontact}" placeholder="Enter emergency contact" class="form-control"/>
             </div>
             <div class="col-md-4">
 
             </div>
 
             <div class="col-md-4">
-                <textarea name="medicalhistory" rows="3"  placeholder="Enter medical history" class="form-control">${patient.medicalhistory}</textarea><br/>
+               MEDICAL HISTORY <textarea name="medicalhistory" rows="3"  placeholder="Enter medical history" class="form-control">${patient.medicalhistory}</textarea><br/>
             </div>
 
             <div class="col-md-4">
-                <textarea name="allergies" rows="3"  placeholder="Enter allergies" class="form-control">${patient.allergies}</textarea><br/>
+               ALLERGIES <textarea name="allergies" rows="3"  placeholder="Enter allergies" class="form-control">${patient.allergies}</textarea><br/>
             </div>
 
             <div class="col-md-4">
-                <textarea name="medicines" rows="3"  placeholder="Enter Medicines" class="form-control">${patient.medicines}</textarea><br/>
+              MEDICINES  <textarea name="medicines" rows="3"  placeholder="Enter Medicines" class="form-control">${patient.medicines}</textarea><br/>
             </div>
             <div class="col-md-2"></div><div class="col-md-2"></div>
             <div class="col-md-2">
