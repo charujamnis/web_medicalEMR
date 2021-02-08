@@ -38,19 +38,18 @@
 
 <p>${message}</p>
 <button class="btn btn-primary" onclick="window.location.href='patient/add_patient.jsp'">Add Patient</button>
-<table border="1" class="table table-striped table-hover" >
+	<div class="table-responsive-md text-nowrap">
+<table class="table table-sm table-striped table-hover table-bordered" >
 <tr>
-	<th>Account Number</th>
-	<th>FirstName</th>
-	<th>LastName</th>
+	<th>Account</th>
+	<th>Name</th>
 	<th>DOB</th>
 	<th>Gender</th>
 	<th>Email</th>
-	<th>Phone Number</th>
+	<th>Phone</th>
 	<th>Marital Status</th>
-	<th>Emergency Name</th>
-	<th>Emergency Contact</th>
-	<th>Employment Status</th>
+	<th>Employment</th>
+	<th>Emergency Details</th>
 	<th>Update</th>
 	<th>Delete</th>
 </tr>
@@ -58,22 +57,21 @@
 	<c:forEach items="${list}" var="patient">
 	<tr>
 	<td>${patient.accountnumber}</td>
-		<td>${patient.first_name}</td>
-		<td>${patient.last_name}</td>
+		<td>${patient.first_name} ${patient.last_name}</td>
 		<td>${patient.dob}</td>
 		<td>${patient.gender}</td>
 		<td>${patient.email}</td>
 		<td>${patient.phonenumber}</td>
 		<td>${patient.maritalstatus}</td>
-		<td>${patient.emergencyname}</td>
-		<td>${patient.emergencycontact}</td>
-	    <td>${patient.employmentstatus}</td>
+		<td>${patient.employmentstatus}</td>
+		<td>${patient.emergencyname} * ${patient.emergencycontact}</td>
 
 		<td><input type="button" name="update" value="Update" onclick="window.location.href='${pageContext.request.contextPath}/PatientServlet?action=EDIT&patientId=${patient.patientId}'"/></td>
 		<td><input type="button" name="delete" value="Delete" onclick='deletePatient(${patient.patientId})'/></td>
 		</tr>
 		</c:forEach>
 		</table>
+	</div>
     </div>
 		</body>
 

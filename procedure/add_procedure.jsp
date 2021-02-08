@@ -36,16 +36,16 @@
                         <input type="hidden" name="procedureId" value="${procedure.procedureId}" />
                     </div>
                     <div class="form-group">
-                        CPT<input type="text" name="cpt" value="${procedure.cpt}" maxlength="6" required placeholder="Enter CPT" class="form-control"/><br/>
+                        CPT<input type="text" name="cpt" value="${procedure.cpt}" maxlength="6" required  class="form-control"/><br/>
                     </div>
                     <div class="form-group">
-                       DESCRIPTION <textarea name="description" rows="3" required placeholder="Enter Description" class="form-control">${procedure.description}</textarea><br/>
+                       DESCRIPTION <textarea name="description" rows="3" required  class="form-control">${procedure.description}</textarea><br/>
                     </div>
                     <div class="form-group">
-                       NAME <input type="text" name="cptName" value="${procedure.name}" placeholder="Enter name" class="form-control"/><br/>
+                       NAME <input type="text" name="cptName" value="${procedure.name}"  class="form-control"/><br/>
                     </div>
                     <div class="form-group">
-                        COST($)<input type="text" name="cost" value="${procedure.cost}" placeholder="Enter cost" class="form-control"/><br/>
+                        COST($)<input type="text" name="cost" value="${procedure.cost}"  class="form-control"/><br/>
                     </div>
 
                     <button class="btn btn-primary" type="submit" onclick="return validation()">Save Procedure</button>

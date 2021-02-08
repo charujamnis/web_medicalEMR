@@ -194,7 +194,7 @@ public class PatientServlet extends HttpServlet {
     public void deletePatient(HttpServletRequest request, HttpServletResponse response) {
         String patientId = request.getParameter("patientId");
         String addressId = request.getParameter("addressId");
-        System.out.println("The patientId: "+patientId+" addressID :"+addressId);
+        //System.out.println("The patientId: "+patientId+" addressID :"+addressId);
 
         if (patientDAO.delete(Integer.parseInt(patientId))) {
             request.setAttribute("message", "Patient is deleted successfully");
